@@ -1,9 +1,33 @@
-import example.pepita
+import example.*
 
 describe "group of tests for pepita" {
 
   test "pepita has initial energy" {
     assert.equals(100, pepita.energy())
   }
-
+  test "roberto puede llevar un paquete en camion con acoplado" {
+    roberto.peso() == 90
+    assert.equals(90, roberto.peso())
+    paquete.estaPago() == true
+    assert.that(paquete.estaPago())
+    roberto.cambiarVehiculo("camion")
+    roberto.pesoActual("camion")
+    assert.that(paquete.entregar(roberto, puenteBrooklyn))
+   }  //revisar//
+   test "neo con credito no puede llevar un paquete no pago a la matrix" {
+    neo.tieneCredito()
+    paquete.estaPago() == false
+    assert.notThat(paquete.estaPago())
+    assert.notThat(paquete.entregar(neo, matrix))
+   }
+   test "test empresa" {
+    empresa.despedir(neo)
+    empresa.contratar(neo)
+    assert.that(empresa.mensajeriaGrande())
+    assert.equals(0, empresa.pesoDelUltimoMensajero())
+    assert.notThat(empresa.puedeSerEntregadoPorPrimero(paquero, matrix))
+   }
+   test "" {
+    
+   }
 }
